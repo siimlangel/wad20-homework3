@@ -6,6 +6,7 @@ import MainPage from "../components/MainPage.vue";
 // Load router
 Vue.use(VueRouter);
 
+// Specify which component to use on a route
 const routes = [
     { path: "/browse", name: "Browse", component: Browse },
     { path: "/", name: "MainPage", component: MainPage },
