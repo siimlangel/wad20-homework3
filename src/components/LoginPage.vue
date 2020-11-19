@@ -14,7 +14,7 @@
         </div>
         <div>
           <h3>Please Log In</h3>
-          <form>
+          <form @submit.prevent>
             <div>
               <input type="text" name="email" placeholder="Email">
             </div>
@@ -22,7 +22,7 @@
               <input type="password" name="password" placeholder="Password">
             </div>
             <div>
-              <button class="button" type="submit" name="login">Log In</button>
+              <button class="button" type="submit" name="login"><router-link :to="{ name: 'MainPage' }">Log In</router-link></button>
             </div>
             <div>
               <small>
@@ -43,32 +43,17 @@ export default {
 
 <style scoped>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
-    * {
-        font-family: "Roboto Slab", serif;
-        outline: none;
-        font-weight:bold;
-    }
-
-    html,
-    body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #0277bd;
-        color: #263238;
-    }
-
-    body {
-        background-color: #0277bd;
-        color: #263238;
-    }
-
+  
     a {
         color: #40c4ff;
     }
 
     .login-page {
+        font-family: "Roboto Slab", serif;
+        outline: none;
+        font-weight:bold;
+        background-color: #0277bd;
+        color: #263238;
         width: 100%;
         height: 100%;
         display: flex;
@@ -77,7 +62,7 @@ export default {
     }
 
     #login-container {
-        background-image: url("/images/logo.png");
+        background-image: url("../../images/logo.png");
         background-size: 20% auto;
         background-repeat: no-repeat;
         background-position: 15px 15px;
