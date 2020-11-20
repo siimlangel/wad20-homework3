@@ -19,7 +19,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 #app {
-  font-family: "Roboto Slab", serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
@@ -35,6 +35,7 @@ button {
   padding: 8px 16px;
   margin: 4px 0;
   color: #ffffff;
+  font-weight: bold;
   background-color: #01579b;
   border: none;
   border-radius: 4px;

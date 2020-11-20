@@ -3,17 +3,60 @@
         <div class="post-author">
             <span class="post-author-info">
                 <img id="image" :src=this.post.author.avatar>
-                <small>{{ this.post.author.firstname }} {{ this.post.author.lastname}}</small>
+                <small>{{ authorName }}</small>
             </span>
+            <small>{{ timestamp }}</small>
         </div>
+
+        <div class="post-image" v-if="!this.post.media">
+
+        </div>
+        <div class="post-image" v-else-if="this.post.media.type == 'image'">
+            <img :src="this.post.media.url">
+        </div>
+        <div class="post-image" v-else-if="this.post.media.type == 'video'">
+            <video controls :src="this.post.media.url" />
+        </div>
+
+        <div class="post-title" v-if="postText">
+            <h3>{{ postText }}</h3>
+        </div>
+
+        <div class="post-actions">
+            <button 
+                type="button" 
+                name="like" 
+                @click="likeActive = !likeActive"
+                :class="[ this.likeActive ? 'like-button liked' : 'like-button' ]"
+                >
+                {{likes}}</button>
+        </div>
+
     </div>
 </template>
 
 <script>
 export default {
+    data: function() {
+        return {
+            firstname: this.post.author.firstname,
+            lastname: this.post.author.lastname,
+            postText: this.post.text,
+            likes: this.post.likes,
+            likeActive: false
+        }
+    },
     props: {
         post: Object
-    }
+    },
+    computed: {
+        authorName() {
+            return this.firstname + ' ' + this.lastname
+        },
+        timestamp() {
+            return this.post.createTime
+        }
+    },
 }
 </script>
 
@@ -59,6 +102,7 @@ export default {
     .post .post-author .post-author-info + small {
         float: right;
         color: grey;
+        right: 10px;
         padding: 10px;
     }
 

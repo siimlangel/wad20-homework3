@@ -1,6 +1,5 @@
 <template>
 <div>
-    <h1>Main Page</h1>
   <div v-bind:key="post.id" v-for="post in getPosts">
       <Post v-bind:post="post"/>
   </div>

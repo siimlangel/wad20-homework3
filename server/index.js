@@ -24,8 +24,41 @@ app.get("/api/posts", (req, res) => {
     media: null,
     likes: "25k",
   };
-  post2 = { id: 2, title: "Post2", content: "asdbsab" };
-  res.json([post1, post2]);
+  post2 = {
+    id: 2,
+    author: {
+      firstname: "Gordon",
+      lastname: "Freeman",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
+    },
+    createTime: "Sep 18, 2020 16:17",
+    text: null,
+    media: {
+      type: "video",
+      url:
+        "https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-screen-close-up-1728-large.mp4",
+    },
+    likes: "15k",
+  };
+  post3 = {
+    id: 2,
+    author: {
+      firstname: "Richard",
+      lastname: "Stallman",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
+    },
+    createTime: "Sep 18, 2020 16:17",
+    text: "To be or not to be...",
+    media: {
+      type: "image",
+      url:
+        "https://i.pcmag.com/imagery/reviews/00EfzjLJNL6FNKVxviGg7Zw-2.1569473216.fit_scale.size_1182x667.jpg",
+    },
+    likes: "15k",
+  };
+  res.json([post1, post2, post3]);
 });
 
 const PORT = 9000;
