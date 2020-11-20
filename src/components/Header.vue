@@ -14,7 +14,7 @@
           :class="[ this.dropdownOpen ? 'dropdown-container open' : 'dropdown-container']"
           >
             <div>
-              <p id="user-username">{{ this.user.firstname }} {{this.user.lastname }}</p>
+              <p id="user-username">{{ this.user.firstname | nameFormat(this.user.lastname) }}</p>
               <p id="user-email">{{ this.user.email }}</p>
             </div>
             <div>
@@ -48,7 +48,12 @@ export default {
   },
   created() {
         this.fetchUser();
+  },
+  filters: {
+    nameFormat: (firstname, lastname) => {
+      return firstname + ' ' + lastname
     }
+  }
 }
 </script>
 
