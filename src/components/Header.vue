@@ -8,20 +8,23 @@
             Search
           </button>
         </div>
-        <div class="avatar-container">
-          <img src="../../images/avatar.png" class="avatar" alt="Me">
-          <div class="dropdown-container">
+        <div class="avatar-container" @click="dropdownOpen = !dropdownOpen">
+          <img :src="this.user.avatar" class="avatar">
+          <div 
+          :class="[ this.dropdownOpen ? 'dropdown-container open' : 'dropdown-container']"
+          >
             <div>
-              <p id="user-username">name</p>
-              <p id="user-email">email</p>
+              <p id="user-username">{{ this.user.firstname }} {{this.user.lastname }}</p>
+              <p id="user-email">{{ this.user.email }}</p>
             </div>
             <div>
-              <a href="browse.html">Browse</a>
+
+              <router-link :to="{ name: 'Browse' }">Browse</router-link>
 
             </div>
             <div>
 
-              <a href="login.html">Log Out</a>
+              <router-link :to="{ name: 'Login' }">Log out</router-link>
 
             </div>
           </div>
@@ -30,8 +33,22 @@
 </template>
 
 <script>
+import {mapActions, mapGetters} from "vuex";
 export default {
-
+  data: () => {
+    return {
+      dropdownOpen: false
+    }
+  },
+  computed: {
+    ...mapGetters(["user"]),
+  },
+  methods: {
+    ...mapActions(["fetchUser"]),
+  },
+  created() {
+        this.fetchUser();
+    }
 }
 </script>
 
@@ -63,6 +80,7 @@ export default {
         margin-left: 15px;
         border-radius: 100%;
         object-fit: cover;
+        z-index: 3;
         object-position: top center;
     }
 
@@ -102,6 +120,7 @@ export default {
         padding: 0;
         /* need to consider parent's margin right */
         right: -15px;
+        z-index: 1;
         width: 50%;
         display: flex;
         flex-direction: column;
@@ -111,7 +130,7 @@ export default {
     }
 
     .dropdown-container.open > div {
-        width: 100%;
+        width: 90%;
         height: 30%;
         text-align: left;
         border-bottom: solid black 1px;

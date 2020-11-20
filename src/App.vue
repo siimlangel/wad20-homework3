@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
+import Header from './components/Header.vue';
 export default {
   name: 'App',
   components: {
     Header
-  }
+  },
 }
 </script>
 
@@ -30,6 +30,8 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
+  background-color: #0277bd;
+  overflow-x: none;
 }
 button {
   padding: 8px 16px;

@@ -9,6 +9,17 @@ app.use(
   })
 );
 
+app.get("/api/user", (request, response) => {
+  user = {
+    firstname: "John",
+    lastname: "Doe",
+    email: "john.doe@example.com",
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
+  };
+  response.json(user);
+});
+
 app.get("/api/posts", (req, res) => {
   // Dummy posts for testing
   post1 = {
@@ -42,7 +53,7 @@ app.get("/api/posts", (req, res) => {
     likes: "15k",
   };
   post3 = {
-    id: 2,
+    id: 3,
     author: {
       firstname: "Richard",
       lastname: "Stallman",

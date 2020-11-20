@@ -7,13 +7,26 @@ Vue.use(Vuex);
 
 const state = () => ({
   posts: [],
+  user: {},
 });
 
 const getters = {
   getPosts: (state) => state.posts,
+  user: (state) => state.user,
 };
 
 const actions = {
+  fetchUser: ({ commit }) => {
+    axios
+      .get("http://localhost:9000/api/user")
+      .then((res) => {
+        commit("setUser", res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+
   fetchPosts: ({ commit }) => {
     // Get posts from api
     axios
@@ -32,6 +45,9 @@ const mutations = {
   // Set state posts
   setPosts: (state, posts) => {
     state.posts = posts;
+  },
+  setUser: (state, user) => {
+    state.user = user;
   },
 };
 

@@ -1,9 +1,10 @@
 <template>
-<div>
+
+<section class="main-container">
   <div v-bind:key="post.id" v-for="post in getPosts">
       <Post v-bind:post="post"/>
   </div>
-</div>
+</section>
 </template>
 
 <script>
@@ -27,5 +28,11 @@ export default {
 </script>
 
 <style scoped>
-
+    .main-container {
+        width: 50%;
+        min-height: 100%;
+        margin: auto auto;
+        padding: 90px 15px 15px 15px;
+        background-color: #ffffff;
+    }
 </style>

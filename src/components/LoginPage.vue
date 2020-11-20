@@ -52,7 +52,6 @@ export default {
         font-family: "Roboto Slab", serif;
         outline: none;
         font-weight:bold;
-        background-color: #0277bd;
         color: #263238;
         width: 100%;
         height: 100%;
