@@ -8,10 +8,12 @@ Vue.use(Vuex);
 const state = () => ({
   posts: [],
   user: {},
+  profiles: []
 });
 
 const getters = {
   getPosts: (state) => state.posts,
+  getProfiles: (state) => state.profiles,
   user: (state) => state.user,
 };
 
@@ -39,6 +41,21 @@ const actions = {
         console.log(err);
       });
   },
+
+
+  fetchProfiles: ({ commit }) => {
+    // Get profiles from api
+    axios
+      .get("http://localhost:9000/api/profiles")
+      .then((res) => {
+        // Commit changes to state
+        commit("setProfiles", res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+
 };
 
 const mutations = {
@@ -48,6 +65,9 @@ const mutations = {
   },
   setUser: (state, user) => {
     state.user = user;
+  },
+  setProfiles: (state, profiles) => {
+    state.profiles = profiles;
   },
 };
 

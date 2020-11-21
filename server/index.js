@@ -72,6 +72,51 @@ app.get("/api/posts", (req, res) => {
   res.json([post1, post2, post3]);
 });
 
+
+app.get("/api/profiles", (req, res) => {
+  // Dummy profiles for testing
+  profile1 = {
+    id: 1,
+    author: {
+      firstname: "John",
+      lastname: "Doe",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
+    }
+  };
+  profile2 = {
+    id: 2,
+    author: {
+      firstname: "Gordon",
+      lastname: "Freeman",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
+    }
+  };
+  profile3 = {
+    id: 3,
+    author: {
+      firstname: "Bruce",
+      lastname: "Wayne",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
+    }
+  };
+
+  profile4 = {
+    id: 4,
+    author: {
+      firstname: "Richard",
+      lastname: "Stallman",
+      avatar:
+       "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+    }
+  };
+
+  res.json([profile1,profile2,profile3,profile4]);
+});
+
+
 const PORT = 9000;
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
