@@ -8,8 +8,8 @@
             Search
           </button>
         </div>
-        <div class="avatar-container" @click="dropdownOpen = !dropdownOpen">
-          <img :src="this.user.avatar" class="avatar">
+        <div class="avatar-container" >
+          <img :src="this.user.avatar" class="avatar" @click="dropdownOpen = !dropdownOpen">
           <div 
           :class="[ this.dropdownOpen ? 'dropdown-container open' : 'dropdown-container']"
           >
